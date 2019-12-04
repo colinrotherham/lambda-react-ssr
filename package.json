@@ -1,0 +1,40 @@
+{
+  "name": "@colinrotherham/lambda-react-ssr",
+  "version": "1.0.0",
+  "description": "React server-side rendered HTML via Node.js AWS Lambda function",
+  "author": "Colin Rotherham",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=13.2.0 <15.0.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test npm-run-all test:* --continue-on-error",
+    "test:audit": "npm audit",
+    "test:lint": "eslint ./src *.js --ext .js,.mjs",
+    "test:dependencies": "npm ls --depth=0",
+    "prebuild": "node --experimental-json-modules ./build/prepare.mjs && npm ci --production --prefix ./dist",
+    "build": "NODE_ENV=production npm-run-all build:*",
+    "build:format": "standard --fix ./src *.{js,mjs}",
+    "build:compile": "babel ./src --out-dir ./dist",
+    "build:zip": "cd ./dist && zip -rq ../package.zip ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "npm-run-all": "^4.1.5",
+    "standard": "^14.3.1"
+  },
+  "standard": {
+    "ignore": [
+      "dist/"
+    ]
+  }
+}
