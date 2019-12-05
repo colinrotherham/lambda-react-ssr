@@ -1,3 +1,11 @@
 module.exports = {
-  extends: 'standard'
+  extends: [
+    'standard',
+    'plugin:react/recommended'
+  ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  }
 }

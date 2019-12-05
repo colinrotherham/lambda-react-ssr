@@ -10,7 +10,13 @@ module.exports = (api) => {
     }]
   ]
 
-  const plugins = []
+  const plugins = [
+    '@babel/plugin-transform-react-jsx',
+    ['module-extension', {
+      jsx: 'js',
+      mjs: 'js'
+    }]
+  ]
 
   return {
     presets,
