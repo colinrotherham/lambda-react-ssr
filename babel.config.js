@@ -11,12 +11,7 @@ module.exports = (api) => {
     '@babel/preset-react'
   ]
 
-  const plugins = [
-    ['module-extension', {
-      jsx: 'js',
-      mjs: 'js'
-    }]
-  ]
+  const plugins = []
 
   return {
     presets,

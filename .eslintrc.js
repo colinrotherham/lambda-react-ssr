@@ -17,6 +17,15 @@ module.exports = {
       '.jsx',
       '.mjs'
     ],
+    "import/resolver": {
+      node: {
+        extensions: [
+          '.js',
+          '.jsx',
+          '.mjs'
+        ]
+      }
+    },
     react: {
       version: 'detect'
     }

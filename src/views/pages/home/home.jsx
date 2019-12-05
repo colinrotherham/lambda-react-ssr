@@ -2,9 +2,9 @@ import { object, string } from 'prop-types'
 import React from 'react'
 
 // Components
-import Footer from '../../partials/footer/footer.jsx'
-import Header from '../../partials/header/header.jsx'
-import Template from '../../templates/main/main.jsx'
+import Footer from '../../partials/footer/footer'
+import Header from '../../partials/header/header'
+import Template from '../../templates/main/main'
 
 function Home ({ title, header = {}, footer = {} }) {
   return (

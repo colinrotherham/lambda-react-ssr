@@ -2,7 +2,7 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 
 // Components
-import Home from './views/pages/home/home.jsx'
+import Home from './views/pages/home/home'
 
 // Lambda handler promise
 export const handler = async (event) => ({
