@@ -15,4 +15,9 @@ Header.propTypes = {
   description: string.isRequired
 }
 
+Header.defaultProps = {
+  title: 'Hello header',
+  description: 'Yes this is a header'
+}
+
 export default Header

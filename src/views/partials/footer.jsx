@@ -15,4 +15,9 @@ Footer.propTypes = {
   description: string.isRequired
 }
 
+Footer.defaultProps = {
+  title: 'Hello footer',
+  description: 'Yes this is a footer'
+}
+
 export default Footer

@@ -1,7 +1,7 @@
 import { string, node } from 'prop-types'
 import React from 'react'
 
-function Template ({ title, children, lang = 'en-GB' }) {
+function Template ({ title, children, lang }) {
   return (
     <html lang={lang}>
       <head>
@@ -22,6 +22,11 @@ Template.propTypes = {
   title: string.isRequired,
   children: node.isRequired,
   lang: string
+}
+
+Template.defaultProps = {
+  title: '',
+  lang: 'en-GB'
 }
 
 export default Template

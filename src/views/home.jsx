@@ -6,7 +6,7 @@ import Footer from './partials/footer.jsx'
 import Header from './partials/header.jsx'
 import Template from './templates/main.jsx'
 
-function Home ({ title, header, footer }) {
+function Home ({ title, header = {}, footer = {} }) {
   return (
     <Template title={title}>
       <Header {...header} />
@@ -17,8 +17,12 @@ function Home ({ title, header, footer }) {
 
 Home.propTypes = {
   title: string.isRequired,
-  header: object.isRequired,
-  footer: object.isRequired
+  header: object,
+  footer: object
+}
+
+Home.defaultProps = {
+  title: 'Hello World'
 }
 
 export default Home

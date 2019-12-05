@@ -1,3 +1,4 @@
+import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 
 // Components
@@ -9,15 +10,6 @@ export const handler = async (event) => ({
   headers: {
     'content-type': 'text/html'
   },
-  body: '<!doctype html>' + renderToStaticMarkup(Home({
-    title: 'Hello World',
-    header: {
-      title: 'Hello header',
-      description: 'Yes this is a header'
-    },
-    footer: {
-      title: 'Hello footer',
-      description: 'Yes this is a footer'
-    }
-  }))
+  body: '<!doctype html>' +
+    renderToStaticMarkup(<Home />)
 })
