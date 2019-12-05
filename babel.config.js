@@ -7,11 +7,11 @@ module.exports = (api) => {
       shippedProposals: true,
       targets: { node: '12.13.0' },
       useBuiltIns: 'usage'
-    }]
+    }],
+    '@babel/preset-react'
   ]
 
   const plugins = [
-    '@babel/plugin-transform-react-jsx',
     ['module-extension', {
       jsx: 'js',
       mjs: 'js'
