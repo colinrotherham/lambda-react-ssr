@@ -17,7 +17,8 @@
     "build": "NODE_ENV=production npm-run-all build:*",
     "build:format": "standard --fix ./src *.{js,jsx,mjs}",
     "build:compile": "babel ./src --out-dir ./dist",
-    "build:zip": "cd ./dist && zip -rq ../package.zip ."
+    "build:zip": "cd ./dist && zip -rq ../package.zip .",
+    "start": "node ./dist/server.js"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
@@ -29,6 +30,7 @@
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
+    "ansi-colors": "^4.1.1",
     "del": "^5.1.0",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",

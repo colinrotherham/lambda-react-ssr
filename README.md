@@ -20,6 +20,14 @@ npm ci
 npm run build
 ```
 
-3. Deploy
+3. Preview
+
+Run via a local Node.js server
+
+```console
+npm start
+```
+
+4. Deploy
 
 Upload **package.zip** to your Lambda or via AWS CLI
