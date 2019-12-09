@@ -18,7 +18,7 @@
     "build:format": "standard --fix ./src *.{js,jsx,mjs}",
     "build:compile": "webpack",
     "build:zip": "cd ./dist && zip -rq ../package.zip .",
-    "start": "node ./dist/server.js"
+    "start": "node --inspect ./dist/server.js"
   },
   "dependencies": {
     "ansi-colors": "^4.1.1",
