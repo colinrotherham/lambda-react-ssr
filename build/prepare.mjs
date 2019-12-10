@@ -18,18 +18,21 @@ export default (async function () {
     '!./dist/node_modules'
   ], { dot: true })
 
-  // 3. Delete development properties
+  // 3. Delete webpack-bundled dependencies
+  delete info.dependencies
+
+  // 4. Delete development properties
   delete info.devDependencies
   delete info.husky
   delete info.scripts
 
-  // 4. Write to ./dist package.json
+  // 5. Write to ./dist package.json
   await writeFile(
     resolve(output, 'package.json'),
     JSON.stringify(info, undefined, 2)
   )
 
-  // 5. Copy parent lockfile to ./dist
+  // 6. Copy parent lockfile to ./dist
   return copyFile(
     resolve('package-lock.json'),
     resolve(output, 'package-lock.json')

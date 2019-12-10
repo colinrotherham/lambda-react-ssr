@@ -11,7 +11,9 @@ module.exports = (api) => {
     '@babel/preset-react'
   ]
 
-  const plugins = []
+  const plugins = [
+    'source-map-support'
+  ]
 
   return {
     presets,
