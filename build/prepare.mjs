@@ -1,5 +1,6 @@
 import fs from 'fs'
 import { resolve } from 'path'
+import del from 'del'
 import info from '../package.json'
 
 const { copyFile, mkdir, writeFile } = fs.promises
@@ -10,18 +11,25 @@ export default (async function () {
   // 1. Create ./dist directory
   await mkdir(output, { recursive: true })
 
-  // 2. Delete development properties
+  // 2. Delete existing files
+  await del([
+    './dist/*',
+    '!./dist/packag*.json',
+    '!./dist/node_modules'
+  ], { dot: true })
+
+  // 3. Delete development properties
   delete info.devDependencies
   delete info.husky
   delete info.scripts
 
-  // 3. Write to ./dist package.json
+  // 4. Write to ./dist package.json
   await writeFile(
     resolve(output, 'package.json'),
     JSON.stringify(info, undefined, 2)
   )
 
-  // 4. Copy parent lockfile to ./dist
+  // 5. Copy parent lockfile to ./dist
   return copyFile(
     resolve('package-lock.json'),
     resolve(output, 'package-lock.json')
