@@ -16,7 +16,7 @@
     "prebuild": "node --experimental-json-modules ./build/prepare.mjs",
     "build": "NODE_ENV=production npm-run-all build:*",
     "build:format": "standard --fix ./src *.{js,jsx,mjs}",
-    "build:compile": "webpack",
+    "build:compile": "webpack --config ./build/webpack/index.cjs",
     "build:zip": "cd ./dist && zip -rq ../package.zip .",
     "start": "node --inspect ./dist/server.js"
   },
