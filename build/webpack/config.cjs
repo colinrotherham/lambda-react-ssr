@@ -1,5 +1,9 @@
 const { join } = require('path')
+const rules = require('./rules.cjs')
 
+/**
+ * Webpack base config
+ */
 module.exports = {
   devtool: 'eval-source-map',
   mode: 'development',
@@ -16,15 +20,10 @@ module.exports = {
     server: join(process.cwd(), 'src/server.mjs')
   },
 
-  // Transpile via babel.config.js
+  // Custom loaders
   module: {
     rules: [
-      {
-        exclude: /node_modules/,
-        test: /\.m?jsx?$/,
-        type: 'javascript/auto',
-        use: { loader: 'babel-loader' }
-      }
+      rules.js()
     ]
   },
 

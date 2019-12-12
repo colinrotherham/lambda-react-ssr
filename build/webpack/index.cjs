@@ -1,6 +1,9 @@
 const { NODE_ENV } = process.env
 const TerserPlugin = require('terser-webpack-plugin')
 
+/**
+ * Webpack config by environment
+ */
 module.exports = (env, argv) => {
   const config = require('./config.cjs')
 
