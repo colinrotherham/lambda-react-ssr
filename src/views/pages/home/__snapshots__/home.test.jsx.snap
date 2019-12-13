@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page: Home Component is rendered 1`] = `
+<html
+  lang="en-GB"
+>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <title>
+      Hello World
+    </title>
+    <meta
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+      name="viewport"
+    />
+  </head>
+  <body>
+    <header
+      className="header"
+    >
+      <h1>
+        Hello header
+      </h1>
+      <p>
+        Yes this is a header
+      </p>
+    </header>
+    <footer
+      className="footer"
+    >
+      <h2>
+        Hello footer
+      </h2>
+      <p>
+        Yes this is a footer
+      </p>
+    </footer>
+  </body>
+</html>
+`;

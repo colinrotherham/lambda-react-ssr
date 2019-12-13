@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Template: Main Component is rendered 1`] = `
+<html
+  lang="en-GB"
+>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <title>
+      
+    </title>
+    <meta
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+      name="viewport"
+    />
+  </head>
+  <body>
+    Hello World
+  </body>
+</html>
+`;

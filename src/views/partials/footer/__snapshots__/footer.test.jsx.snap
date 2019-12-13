@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Partial: Footer Component is rendered 1`] = `
+<footer
+  className="footer"
+>
+  <h2>
+    Hello footer
+  </h2>
+  <p>
+    Yes this is a footer
+  </p>
+</footer>
+`;

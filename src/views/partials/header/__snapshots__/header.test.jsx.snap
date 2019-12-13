@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Partial: Header Component is rendered 1`] = `
+<header
+  className="header"
+>
+  <h1>
+    Hello header
+  </h1>
+  <p>
+    Yes this is a header
+  </p>
+</header>
+`;
