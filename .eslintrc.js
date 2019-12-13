@@ -13,6 +13,7 @@ module.exports = {
   ],
   settings: {
     'import/extensions': [
+      '.cjs',
       '.js',
       '.jsx',
       '.mjs'
@@ -20,6 +21,7 @@ module.exports = {
     "import/resolver": {
       node: {
         extensions: [
+          '.cjs',
           '.js',
           '.jsx',
           '.mjs'

@@ -52,6 +52,6 @@ module.exports = {
 
   // Handle additional extensions
   resolve: {
-    extensions: ['.js', '.jsx', '.mjs']
+    extensions: ['.cjs', '.js', '.jsx', '.mjs']
   }
 }
