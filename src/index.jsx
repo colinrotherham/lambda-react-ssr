@@ -1,27 +1,34 @@
 import React from 'react'
+import connect from 'connect'
+import serverless from 'serverless-http'
 import { render } from './views'
 import Home from './views/pages/home/home'
 
-// Lambda handler promise
-export const handler = async ({ path }) => {
-  // Default response
-  const response = {
-    statusCode: 200,
-    headers: {
-      'content-type': 'text/html'
-    }
-  }
+// App, Lambda handler
+export const app = connect()
+export const handler = serverless(app)
+
+// Base middleware
+app.use('/', (req, res, next) => {
+  const { pathname } = req._parsedUrl
+
+  // Default header
+  res.setHeader('Content-Type', 'text/html')
+  res.writeHead(200)
 
   // Simple router
-  switch (path) {
+  switch (pathname) {
     case '/':
-      response.body = render(<Home />)
+      res.end(render(<Home />))
       break
 
     default:
-      response.statusCode = 404
-      response.body = 'Page not found'
+      next()
   }
+})
 
-  return response
-}
+// 404 handler
+app.use((req, res) => {
+  res.statusCode = 404
+  res.end('Page not found')
+})
