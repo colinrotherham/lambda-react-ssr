@@ -6,7 +6,11 @@ import Home from './views/home.jsx'
 // Lambda handler promise
 export const handler = async (event) => ({
   statusCode: 200,
+  headers: {
+    'content-type': 'text/html'
+  },
   body: '<!doctype html>' + renderToStaticMarkup(Home({
+    title: 'Hello World',
     header: {
       title: 'Hello header',
       description: 'Yes this is a header'
