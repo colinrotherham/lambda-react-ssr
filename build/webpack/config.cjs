@@ -1,6 +1,7 @@
-const { join } = require('path')
+const { join, resolve } = require('path')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const NodemonPlugin = require('nodemon-webpack-plugin')
 const rules = require('./rules.cjs')
 
 /**
@@ -46,7 +47,12 @@ module.exports = {
       silent: true
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].css'
+      filename: 'public/assets/css/[name].css'
+    }),
+    new NodemonPlugin({
+      quiet: true,
+      exec: 'cd ./dist && node --inspect server.js',
+      watch: resolve('./dist')
     })
   ],
 

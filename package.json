@@ -8,6 +8,7 @@
     "node": ">=13.2.0 <15.0.0"
   },
   "scripts": {
+    "dev": "NODE_ENV=development npm run build:compile -- --watch",
     "test": "NODE_ENV=test npm-run-all test:* --continue-on-error",
     "test:audit": "npm audit",
     "test:lint": "eslint ./src *.js --ext .csj,.js,.jsx,.mjs",
@@ -18,7 +19,7 @@
     "build:format": "standard --fix ./src *.{cjs,js,jsx,mjs}",
     "build:compile": "webpack --config ./build/webpack/index.cjs",
     "build:zip": "cd ./dist && zip -rq ../package.zip .",
-    "start": "node --inspect ./dist/server.js"
+    "start": "node ./dist/server.js"
   },
   "dependencies": {
     "ansi-colors": "^4.1.1",
@@ -46,6 +47,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "nodemon-webpack-plugin": "^4.2.1",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
