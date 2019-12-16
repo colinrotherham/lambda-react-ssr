@@ -1,4 +1,6 @@
 const { join } = require('path')
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const rules = require('./rules.cjs')
 
 /**
@@ -9,7 +11,10 @@ module.exports = {
   mode: 'development',
 
   // Exclude per-module stats
-  stats: { modules: false },
+  stats: {
+    children: false,
+    modules: false
+  },
 
   // Pack for Node.js applications
   target: 'node',
@@ -17,23 +22,33 @@ module.exports = {
   // Application and preview server
   entry: {
     index: join(process.cwd(), 'src/index.jsx'),
-    server: join(process.cwd(), 'src/server.mjs')
+    server: join(process.cwd(), 'src/server.mjs'),
+    styles: join(process.cwd(), 'src/public/assets/css/styles.pcss')
   },
 
   // Custom loaders
   module: {
     rules: [
-      rules.js()
+      rules.js(),
+      rules.css()
     ]
   },
 
-  // Output CommonJS for Node.js
+  // Output to ./dist
   output: {
     libraryTarget: 'commonjs2',
-    path: join(process.cwd(), 'dist'),
-    filename: '[name].js',
-    sourceMapFilename: '[file].map'
+    path: join(process.cwd(), 'dist')
   },
+
+  plugins: [
+    new FixStyleOnlyEntriesPlugin({
+      extensions: ['css', 'pcss'],
+      silent: true
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'assets/css/[name].css'
+    })
+  ],
 
   // Handle additional extensions
   resolve: {
