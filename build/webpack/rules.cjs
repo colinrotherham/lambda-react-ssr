@@ -18,7 +18,18 @@ module.exports.css = () => ({
   test: /\.p?css$/,
   use: [
     MiniCssExtractPlugin.loader,
-    { loader: 'css-loader', options: { importLoaders: 1 } },
-    'postcss-loader'
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: 1,
+        sourceMap: true
+      }
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        sourceMap: true
+      }
+    }
   ]
 })

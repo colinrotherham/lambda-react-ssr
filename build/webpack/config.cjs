@@ -2,6 +2,7 @@ const { join, resolve } = require('path')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const NodemonPlugin = require('nodemon-webpack-plugin')
+const { SourceMapDevToolPlugin } = require('webpack')
 const rules = require('./rules.cjs')
 
 /**
@@ -53,6 +54,9 @@ module.exports = {
       quiet: true,
       exec: 'cd ./dist && node --inspect server.js',
       watch: resolve('./dist')
+    }),
+    new SourceMapDevToolPlugin({
+      filename: '[file].map'
     })
   ],
 
